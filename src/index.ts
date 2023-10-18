@@ -9,16 +9,12 @@ const listaClase = ['Garrido Pintado, Albert', 'Rodellar Martínez, Alberto', 'M
 const numTotalLista = listaClase.length;
 
 // eslint-disable-next-line arrow-body-style
-app.get('/', (req: Request, res: Response) => {
-	return res.send({listaClase});
-});
+app.get('/', (req: Request, res: Response) => res.json({listaClase}));
+// eslint-disable-next-line arrow-body-style
+app.get('/', (req: Request, res: Response) => res.json({numTotalLista}));
 // eslint-disable-next-line arrow-body-style
 app.get('/', (req: Request, res: Response) => {
-	return res.send({numTotalLista});
-});
-// eslint-disable-next-line arrow-body-style
-app.get('/', (req: Request, res: Response) => {
-	return res.send({message: 'Hello World!'});
+	return res.send({listaClase, numTotalLista});
 });
 app.listen(process.env.HOST_PORT, () => {
 	console.log(`⚡️[server]: Server is running at http://localhost:${port}!`);
